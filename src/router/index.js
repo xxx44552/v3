@@ -11,6 +11,11 @@ const routes = [
         name: 'About',
         component: () => import('../views/About/index.vue'),
     },
+    {
+        path: '/:pathMatch(.*)*',
+        name: '404',
+        component: () => import('../views/404/index.vue'),
+    },
 ];
 
 const router = createRouter({
