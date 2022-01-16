@@ -1,12 +1,10 @@
-const userCard = () => import('./views/UserCard.vue');
-
 const moduleRoute = {
-    path: '/user',
+    path: '/cabinet',
     component: () => import('./Module.vue'),
     children: [
         {
-            path: '/',
-            component: userCard
+            path: '',
+            component: () => import('./views/Cabinet/index.vue')
         },
     ]
 };

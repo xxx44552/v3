@@ -4,11 +4,11 @@ const moduleRoute = {
     children: [
         {
             path: '',
-            component: () => import('./views/Users.vue')
+            component: () => import('./views/Users/index.vue')
         },
         {
             path: ':user',
-            component: () => import('./views/User.vue')
+            component: () => import('./views/User/index.vue')
         }
     ]
 };

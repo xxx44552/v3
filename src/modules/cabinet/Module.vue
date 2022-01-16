@@ -1,11 +1,14 @@
 <template>
-    <div>
-        <router-view/>
-    </div>
+    <router-view/>
 </template>
 
 <script>
+import store from './store';
+
 export default {
-    name: 'Module2'
+    name: 'Cabinet',
+    created() {
+        this.$store.registerModule('cabinet', store);
+    }
 };
 </script>

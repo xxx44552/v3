@@ -1,6 +1,5 @@
 export default {
     state: {
-        test: 1,
     },
     mutations: {
     },
@@ -8,4 +7,5 @@ export default {
     },
     modules: {
     },
+    global: false,
 };
