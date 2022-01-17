@@ -1,4 +1,4 @@
-import router from 'vue-router';
+import * as router from 'vue-router';
 
 const { createRouter } = router;
 const routes = [
