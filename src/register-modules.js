@@ -1,7 +1,6 @@
-import router from './router';
 import store from './store';
 
-const registerModule = (name, module) => {
+const registerModule = (name, module, router) => {
     if (module.store?.global) {
         store.registerModule(name, module.store);
     }
@@ -10,6 +9,7 @@ const registerModule = (name, module) => {
     }
 };
 
-export const registerModules = modules => {
-    Object.keys(modules).forEach((moduleKey) => registerModule(moduleKey, modules[moduleKey]));
+export const registerModules = (modules, router) => {
+    // eslint-disable-next-line max-len
+    Object.keys(modules).forEach((moduleKey) => registerModule(moduleKey, modules[moduleKey], router));
 };

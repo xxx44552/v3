@@ -1,6 +1,5 @@
-import * as router from 'vue-router';
+import { createRouter } from 'vue-router';
 
-const { createRouter } = router;
 const routes = [
     {
         path: '/',
