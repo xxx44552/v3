@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter } from 'vue-router';
 
 const routes = [
     {
@@ -10,6 +10,7 @@ const routes = [
         path: '/about',
         name: 'About',
         component: () => import('../views/About/index.vue'),
+        meta: { amp: true },
     },
     {
         path: '/:pathMatch(.*)*',
@@ -18,10 +19,9 @@ const routes = [
     },
 ];
 
-const router = createRouter({
-    mode: 'history',
-    history: createWebHistory(process.env.BASE_URL),
-    routes,
-});
-
-export default router;
+export default function (history) {
+    return createRouter({
+        history,
+        routes
+    });
+}
