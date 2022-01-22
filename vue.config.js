@@ -18,6 +18,7 @@ module.exports = {
             },
         },
     },
+    transpileDependencies: ['vue-meta'],
     chainWebpack: config => {
         config.module.rule('vue').uses.delete('cache-loader');
         config.module.rule('js').uses.delete('cache-loader');

@@ -33,6 +33,8 @@ module.exports = {
         'arrow-parens': ['off'],
         'import/prefer-default-export': 'off',
         'vue/comment-directive': 0,
-        'import/extensions': 'off'
+        'import/extensions': 'off',
+        "semi": [0], // @todo
+        'max-len': ["error", { "code": 120 }]  // @todo
     },
 };

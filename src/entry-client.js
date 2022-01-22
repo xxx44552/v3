@@ -1,5 +1,6 @@
 import { createSSRApp } from 'vue';
 import { createWebHistory } from 'vue-router';
+import { createMetaManager } from 'vue-meta';
 import createRouter from './router';
 import store from './store';
 import App from './App/index.vue';
@@ -18,7 +19,7 @@ registerModules({
     cabinet,
 }, router);
 
-app.use(router).use(store);
+app.use(router).use(store).use(createMetaManager());
 
 router.isReady().then(() => {
     app.mount('#app');
