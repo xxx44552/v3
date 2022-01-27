@@ -1,7 +1,8 @@
 const path = require('path');
 const express = require('express');
 const fs = require('fs');
-const { renderToString } = require('@vue/server-renderer');
+const { renderToString, pipeToWebWritable } = require('@vue/server-renderer');
+const { renderHeadToString } = require('@vueuse/head')
 const manifest = require('./build/server/ssr-manifest.json');
 
 const server = express();
@@ -19,14 +20,12 @@ server.get('*', async (req, res) => {
 
     await router.push(req.url);
     await router.isReady();
-    const isAmp = router?.currentRoute?._value?.meta?.amp;
-    let filePath = '/build/client/index.html';
-    if (isAmp) {
-        filePath = '/build/client/index.amp.html';
-    }
-    const appContent = await renderToString(app);
+    const meta = router?.currentRoute?._value?.meta;
+    console.log(meta)
 
-    fs.readFile(path.join(__dirname, filePath), (err, html) => {
+    const ctx = {}
+    const appContent = await renderToString(app, ctx);
+    fs.readFile(path.join(__dirname, '/build/client/index.html'), (err, html) => {
         if (err) {
             throw err;
         }
